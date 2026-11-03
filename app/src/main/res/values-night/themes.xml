@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- При выборе системной тёмной темы стартуем с тёмной темы приложения -->
+    <style name="Theme.RTL.Dark" parent="Base.Theme.RTL">
+        <item name="rtlBg">@color/bg_dark</item>
+        <item name="rtlCard">@color/card_dark</item>
+        <item name="rtlText">@color/white</item>
+        <item name="rtlDivider">#2A2A2C</item>
+        <item name="rtlHint">#8E8E93</item>
+        <item name="rtlSwitchOffTrack">#3A3A3C</item>
+    </style>
+</resources>

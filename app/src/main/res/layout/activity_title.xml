@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?rtlBg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_back"
+            android:contentDescription="@string/back"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+
+        <TextView
+            android:id="@+id/titleName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="?rtlText"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:ellipsize="end" />
+
+        <ImageView
+            android:id="@+id/btnEdit"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_edit"
+            android:contentDescription="@string/edit"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+
+        <ImageView
+            android:id="@+id/btnDelete"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_delete"
+            android:contentDescription="@string/delete"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="92dp"
+                    android:layout_height="130dp">
+
+                    <ImageView
+                        android:id="@+id/cover"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/cover_placeholder"
+                        android:contentDescription="@string/cover" />
+
+                    <TextView
+                        android:id="@+id/coverText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textColor="#FFFFFFFF"
+                        android:textStyle="bold"
+                        android:textSize="24sp" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="14dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/titleAuthor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="?rtlHint"
+                        android:textSize="13sp" />
+
+                    <LinearLayout android:id="@+id/rowStatus" style="@style/InfoRow" />
+                    <LinearLayout android:id="@+id/rowFormat" style="@style/InfoRow" />
+                    <LinearLayout android:id="@+id/rowWords" style="@style/InfoRow" />
+                    <LinearLayout android:id="@+id/rowVolumes" style="@style/InfoRow" />
+                    <LinearLayout android:id="@+id/rowChapters" style="@style/InfoRow" />
+                    <LinearLayout android:id="@+id/rowRating" style="@style/InfoRow" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Блок прогресса (настройка) -->
+            <LinearLayout
+                android:id="@+id/progressBlock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/progressCaption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="?rtlHint"
+                    android:textSize="12sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressPill"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="4dp"
+                    android:max="1000"
+                    android:progressDrawable="@drawable/progress_pill" />
+            </LinearLayout>
+
+            <TextView android:id="@+id/secBookmark" style="@style/SectionHeader" android:layout_marginTop="14dp" />
+            <TextView android:id="@+id/txtBookmark" style="@style/BodyText" />
+
+            <TextView android:id="@+id/secDrop" style="@style/SectionHeader" android:layout_marginTop="14dp" />
+            <TextView android:id="@+id/txtDrop" style="@style/BodyText" android:textColor="@color/st_dropped" />
+
+            <TextView android:id="@+id/secVolumes" style="@style/SectionHeader" android:layout_marginTop="14dp" />
+            <LinearLayout android:id="@+id/tableVolumes" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
+            <TextView android:id="@+id/tableSummary" style="@style/BodySmall" />
+
+            <TextView android:id="@+id/secChapters" style="@style/SectionHeader" android:layout_marginTop="14dp" />
+            <LinearLayout android:id="@+id/tableChapters" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
+            <TextView android:id="@+id/tableChaptersSummary" style="@style/BodySmall" />
+
+            <TextView android:id="@+id/secGenres" style="@style/SectionHeader" android:layout_marginTop="14dp" />
+            <LinearLayout android:id="@+id/genresFlow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="4dp" />
+
+            <TextView android:id="@+id/secDesc" style="@style/SectionHeader" android:layout_marginTop="14dp" />
+            <TextView android:id="@+id/txtDesc" style="@style/BodyText" />
+            <TextView
+                android:id="@+id/btnShowAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/accent"
+                android:textSize="13sp"
+                android:padding="6dp"
+                android:background="?attr/selectableItemBackground"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/bg_card"
+    android:padding="10dp"
+    android:gravity="center_vertical">
+
+    <FrameLayout
+        android:layout_width="52dp"
+        android:layout_height="74dp">
+
+        <ImageView
+            android:id="@+id/cover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/cover"
+            android:background="@color/cover_placeholder" />
+
+        <TextView
+            android:id="@+id/coverText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="#FFFFFFFF"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            tools:ignore="MissingPrefix"
+            xmlns:tools="http://schemas.android.com/tools" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?rtlText"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:ellipsize="end"
+            tools:text="Название тайтла"
+            xmlns:tools="http://schemas.android.com/tools" />
+
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?rtlHint"
+            android:textSize="12sp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <LinearLayout
+            android:id="@+id/tags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/bookmark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?rtlHint"
+            android:textSize="12sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginTop="3dp" />
+
+        <TextView
+            android:id="@+id/dropReason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/st_dropped"
+            android:textSize="12sp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginTop="3dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="3dp">
+
+            <ProgressBar
+                android:id="@+id/ratingBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="70dp"
+                android:layout_height="5dp"
+                android:progressDrawable="@drawable/rating_bar_bg" />
+
+            <TextView
+                android:id="@+id/ratingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:textColor="?rtlHint"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/bookmarkBottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?rtlHint"
+            android:textSize="12sp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginTop="3dp" />
+
+        <ProgressBar
+            android:id="@+id/cardProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginTop="6dp"
+            android:max="1000"
+            android:progressDrawable="@drawable/progress_pill" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp">
+
+        <!-- Стиль «Цифры» -->
+        <LinearLayout
+            android:id="@+id/blockNumbers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/numBig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?rtlText"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/numCaption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?rtlHint"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- Стиль «Цифры · плитка» -->
+        <LinearLayout
+            android:id="@+id/tile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tileBig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tileCap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?rtlHint"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tileSub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?rtlHint"
+                android:textSize="10sp"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <!-- Стиль «Цифры · полоса» (правый блок с мини-прогрессом) -->
+        <LinearLayout
+            android:id="@+id/blockBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/barBig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?rtlText"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/barCap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?rtlHint"
+                android:textSize="11sp" />
+
+            <ProgressBar
+                android:id="@+id/barProgress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="70dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="3dp"
+                android:max="1000"
+                android:progressDrawable="@drawable/progress_pill" />
+
+            <TextView
+                android:id="@+id/barCaption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?rtlHint"
+                android:textSize="9sp"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/ic_arrow_right"
+        android:contentDescription="@string/edit" />
+</LinearLayout>

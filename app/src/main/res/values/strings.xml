@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ReadTrackerLite</string>
+
+    <!-- Навигация / шапки -->
+    <string name="tab_library">Библиотека</string>
+    <string name="tab_analytics">Аналитика</string>
+    <string name="settings">Настройки</string>
+    <string name="analytics_short">Аналитика</string>
+
+    <!-- Статусы -->
+    <string name="status_planned">В планах</string>
+    <string name="status_reading">Читаю</string>
+    <string name="status_paused">На паузе</string>
+    <string name="status_completed">Завершено</string>
+    <string name="status_dropped">Брошено</string>
+    <string name="tab_all">Все</string>
+
+    <!-- Форматы -->
+    <string name="format_series">Серия</string>
+    <string name="format_web">Веб</string>
+    <string name="format_single">Одиночка</string>
+    <string name="format_single_card">Сингл</string>
+    <string name="ongoing_tag">Онг.</string>
+    <string name="ongoing_full">онгоинг</string>
+
+    <!-- Карточка / цифры -->
+    <string name="volumes_suffix">т.</string>
+    <string name="chapters_suffix">гл.</string>
+    <string name="words_suffix">сл.</string>
+    <string name="words_label">Слов</string>
+    <string name="volumes_label">Томов</string>
+    <string name="chapters_label">Глав</string>
+
+    <!-- Библиотека -->
+    <string name="empty_library">Библиотека пуста.\nНажмите «+», чтобы добавить тайтл.</string>
+    <string name="empty_filtered">Ничего не найдено</string>
+    <string name="search_hint">Поиск по названию…</string>
+    <string name="filter_format_title">Фильтр по формату</string>
+    <string name="filter_series">Серии</string>
+    <string name="filter_web">Веб-новеллы</string>
+    <string name="filter_singles">Синглы</string>
+    <string name="reset">Сбросить</string>
+    <string name="apply">Применить</string>
+    <string name="delete_title_q">Удалить тайтл?</string>
+    <string name="delete_title_body">«%1$s» будет удалён без возможности восстановления.</string>
+    <string name="cancel">Отмена</string>
+    <string name="delete">Удалить</string>
+    <string name="save">Сохранить</string>
+    <string name="edit">Редактировать</string>
+    <string name="next">Далее</string>
+    <string name="back">Назад</string>
+    <string name="close">Закрыть</string>
+
+    <!-- Форма добавления/редактирования -->
+    <string name="add_title">Новый тайтл</string>
+    <string name="edit_title">Редактирование</string>
+    <string name="step_title">Тайтл</string>
+    <string name="step_status">Статус</string>
+    <string name="step_data">Данные</string>
+    <string name="field_name">Название</string>
+    <string name="field_author">Автор (необязательно)</string>
+    <string name="field_description">Описание (необязательно)</string>
+    <string name="untitled">Без названия</string>
+    <string name="cover">Обложка</string>
+    <string name="cover_url_hint">Ссылка на обложку (URL)</string>
+    <string name="cover_pick">Из галереи</string>
+    <string name="cover_clear">Убрать</string>
+    <string name="status">Статус</string>
+    <string name="format">Формат</string>
+    <string name="drop_reason">Почему брошено</string>
+    <string name="bookmark">Закладка</string>
+    <string name="bookmark_hint">Пример: 1.4 глава, 2х3.1 арка…</string>
+    <string name="rating">Оценка</string>
+    <string name="rating_reset">Сбросить</string>
+    <string name="genres">Жанры</string>
+    <string name="genre_add_hint">Например: Фэнтези, Романтика…</string>
+    <string name="change_format_q">Сменить формат издания?</string>
+    <string name="change_format_body">Введённые данные могут быть потеряны.</string>
+    <string name="change">Сменить</string>
+
+    <!-- Расчёт -->
+    <string name="calc_block">Расчёт</string>
+    <string name="by_volumes_switch">Расчёт по томам</string>
+    <string name="by_chapters_switch">Расчёт по главам</string>
+    <string name="summary_mode">Ввести суммарно</string>
+    <string name="per_volume_mode">Слова по каждому тому</string>
+    <string name="per_chapter_mode">Слова по каждой главе</string>
+    <string name="add_volume">Добавить том</string>
+    <string name="add_chapter">Добавить главу</string>
+    <string name="volume_num">Том</string>
+    <string name="chapter_num">№</string>
+    <string name="total_words_in_title">Всего слов в тайтле</string>
+    <string name="total_words_hint">Например: 1 200 000</string>
+    <string name="total_volumes_block">Всего томов в серии</string>
+    <string name="total_chapters_block">Всего глав</string>
+    <string name="ongoing_switch">Онгоинг</string>
+    <string name="ongoing_caption_5q">Отображается как 5/?</string>
+    <string name="ongoing_caption_known">Кол-во томов известно</string>
+    <string name="optional_25">Необязательно — напр. 25</string>
+    <string name="chapters_progress">Прогресс глав</string>
+    <string name="read_chapters">Прочитано</string>
+    <string name="total_chapters">Всего</string>
+    <string name="open_chapters_list">Открыть список глав</string>
+    <string name="exists_error">Глава %1$s уже есть</string>
+
+    <!-- Таблица глав -->
+    <string name="chapters_screen">Список глав</string>
+    <string name="goto_chapter_hint">Перейти к главе №</string>
+    <string name="fill_range">Заполнить диапазон</string>
+    <string name="range_from">С главы</string>
+    <string name="range_to">По главу</string>
+    <string name="range_total_words">Всего слов в диапазоне</string>
+    <string name="range_words_each">Слов в каждой главе</string>
+    <string name="range_per_hint">По ~%1$s слов на главу (%2$d гл.)</string>
+    <string name="range_info">Глав в диапазоне: %1$d</string>
+    <string name="range_max_error">Диапазон не больше 5000 глав</string>
+    <string name="range_order_error">«По» не меньше «С»</string>
+    <string name="delete_range">Удалить главы диапазона</string>
+    <string name="delete_range_q">Удалить главы?</string>
+    <string name="delete_range_body">Будет удалено глав: %1$d (с %2$s по %3$s).</string>
+    <string name="delete_range_empty">В этом диапазоне глав нет</string>
+    <string name="chapters_empty">Глав пока нет. «+» — добавить одну главу, значок справа — заполнить диапазон.</string>
+
+    <!-- Экран тайтла -->
+    <string name="title_deleted">Тайтл удалён</string>
+    <string name="sec_bookmark">ЗАКЛАДКА</string>
+    <string name="sec_drop">ПОЧЕМУ БРОШЕНО</string>
+    <string name="sec_by_volumes">ПО ТОМАМ</string>
+    <string name="sec_by_chapters">ПО ГЛАВАМ</string>
+    <string name="sec_genres">ЖАНРЫ</string>
+    <string name="sec_description">ОПИСАНИЕ</string>
+    <string name="row_status">Статус</string>
+    <string name="row_format">Формат</string>
+    <string name="row_words">Слова</string>
+    <string name="row_volumes">Тома</string>
+    <string name="row_chapters">Главы</string>
+    <string name="row_rating">Оценка</string>
+    <string name="show_all">Показать все (%1$d)</string>
+    <string name="collapse">Свернуть</string>
+    <string name="total_rows_summary">Всего %1$s слов · в среднем %2$s на %3$s</string>
+    <string name="per_volume_word">том</string>
+    <string name="per_chapter_word">главу</string>
+
+    <!-- Аналитика -->
+    <string name="m_series_done">Завершено серий</string>
+    <string name="m_web_done">Завершено веб</string>
+    <string name="m_volumes_read">Прочитано томов</string>
+    <string name="m_words_read">Прочитано слов</string>
+    <string name="sec_top5">Топ-5 по словам</string>
+    <string name="sec_words_by_status">Слова по статусам</string>
+    <string name="sec_genre_prefs">Жанровые предпочтения</string>
+    <string name="sec_goals">Цели</string>
+    <string name="sections_not_selected">Разделы не выбраны</string>
+    <string name="genres_chart_need3">Добавьте жанры минимум для 3 разных жанров, чтобы увидеть диаграмму</string>
+
+    <!-- Цели -->
+    <string name="my_goals">Мои цели</string>
+    <string name="goals_hint">Заполните только нужное — пустые поля не считаются целью.</string>
+    <string name="goal_words">Слов прочитать</string>
+    <string name="goal_volumes">Томов прочитать</string>
+    <string name="goal_web">Веб-новелл завершить</string>
+    <string name="goal_series">Серий завершить</string>
+    <string name="example_1000000">Например: 1000000</string>
+    <string name="example_25">Например: 25</string>
+
+    <!-- Настройки -->
+    <string name="set_theme">Тема</string>
+    <string name="theme_dark">Тёмная</string>
+    <string name="theme_amoled">AMOLED</string>
+    <string name="theme_light">Светлая</string>
+    <string name="set_cards">Вид карточек</string>
+    <string name="card_numbers">Цифры</string>
+    <string name="card_tile">Цифры · плитка</string>
+    <string name="card_bar">Цифры · полоса</string>
+    <string name="card_numbers_desc">Крупное число справа без подложки</string>
+    <string name="card_tile_desc">Число и подписи в плитке акцентного цвета</string>
+    <string name="card_bar_desc">Как «Цифры» плюс полоса прогресса снизу</string>
+    <string name="set_interface">Интерфейс</string>
+    <string name="set_functions">Функции</string>
+    <string name="set_analytics">Аналитика</string>
+    <string name="set_personalization">Персонализация</string>
+    <string name="set_data">Данные</string>
+    <string name="s_centered_headers">Заголовки по центру</string>
+    <string name="s_align_filters">Выравнивание фильтров</string>
+    <string name="s_card_arrow">Стрелка в карточках «&gt;»</string>
+    <string name="s_status_text">Текст статуса в списке</string>
+    <string name="s_drop_in_cards">Причина дропа в карточках</string>
+    <string name="s_hide_ongoing">Скрывать тег «Онг.»</string>
+    <string name="s_shorten">Сокращать числа</string>
+    <string name="s_no_anim">Отключить анимации</string>
+    <string name="s_fab_glow">Свечение кнопки «+»</string>
+    <string name="s_hide_bar">Скрыть нижний бар</string>
+    <string name="s_title_one_line">Название в одну строку</string>
+    <string name="s_title_screen">Экран тайтла по тапу</string>
+    <string name="s_ts_header">Название и статус на экране тайтла</string>
+    <string name="s_ts_progress">Блок прогресса на экране тайтла</string>
+    <string name="s_simple_add">Упрощённое добавление</string>
+    <string name="s_goals">Цели</string>
+    <string name="s_bookmarks">Закладки</string>
+    <string name="s_bookmark_pos">Расположение закладки</string>
+    <string name="bm_inline">В ряд</string>
+    <string name="bm_bottom">Снизу</string>
+    <string name="s_total_words">Всего слов в тайтле</string>
+    <string name="s_rating">Оценка тайтлов</string>
+    <string name="s_rating_scale">Шкала оценки</string>
+    <string name="scale_5">5</string>
+    <string name="scale_10">10</string>
+    <string name="s_search">Поиск и фильтр</string>
+    <string name="s_genres">Жанры</string>
+    <string name="s_only_chart_genres">Только жанры в диаграмме</string>
+    <string name="s_genre_editor">Редактор диаграммы жанров</string>
+    <string name="s_wide_metrics">Широкие карточки метрик</string>
+    <string name="s_web_chapters">Главы веб-романов</string>
+    <string name="s_sort_all">Сортировка «Все» по статусу</string>
+    <string name="s_sections">Разделы аналитики</string>
+    <string name="sec_top5_name">Топ-5 по словам</string>
+    <string name="sec_bystatus_name">Слова по статусам</string>
+    <string name="sec_genres_name">Жанровые предпочтения</string>
+    <string name="sec_goals_name">Цели</string>
+    <string name="s_collapsible">Сворачиваемые разделы</string>
+    <string name="color_accent">Акцент</string>
+    <string name="pick_color">Выбрать цвет</string>
+    <string name="reset_colors">Сбросить цвета</string>
+    <string name="export_library">Экспорт библиотеки</string>
+    <string name="import_library">Импорт библиотеки</string>
+    <string name="export_settings">Экспорт настроек</string>
+    <string name="import_settings">Импорт настроек</string>
+    <string name="backup">Резервная копия</string>
+    <string name="clear_data">Очистить данные</string>
+    <string name="clear_data_q">Очистить все данные?</string>
+    <string name="clear_data_body">Библиотека будет полностью удалена. Это нельзя отменить.</string>
+    <string name="reset_all_settings">Сбросить все настройки</string>
+    <string name="reset_settings_q">Сбросить все настройки?</string>
+    <string name="reset_settings_body">Параметры и цвета вернутся к значениям по умолчанию. Библиотека не изменится.</string>
+    <string name="import_dialog_q">Будет загружено %1$d тайтлов. Дополнить текущую библиотеку или полностью заменить её?</string>
+    <string name="merge">Дополнить</string>
+    <string name="replace">Заменить</string>
+    <string name="replace_confirm_q">Подтвердите замену</string>
+    <string name="replace_confirm_body">Текущая библиотека (%1$d тайтлов) будет полностью удалена и заменена данными из файла. Это нельзя отменить — если сомневаетесь, сначала сделайте экспорт.</string>
+    <string name="import_merged">Добавлено/обновлено: %1$d тайтлов</string>
+    <string name="import_replaced">Загружено: %1$d тайтлов</string>
+    <string name="export_error">Ошибка экспорта: %1$s</string>
+    <string name="import_error">Ошибка импорта: %1$s</string>
+    <string name="saved_ok">Сохранено</string>
+
+    <!-- Ошибки сохранения (II-3) -->
+    <string name="err_chapters_more">Прочитано глав больше, чем указано всего глав</string>
+    <string name="err_words_more">Слов прочитано больше, чем всего слов в тайтле</string>
+    <string name="err_volumes_more">Указано томов больше, чем всего томов в серии</string>
+
+    <string name="ok">OK</string>
+</resources>

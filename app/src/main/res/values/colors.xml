@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Палитра по умолчанию (часть I). Реальные цвета берутся из настроек,
+         здесь — статические значения для превью/заглушек. -->
+    <color name="accent">#FF9F0A</color>
+
+    <color name="st_planned">#60A5FA</color>
+    <color name="st_reading">#34D399</color>
+    <color name="st_paused">#FBBF24</color>
+    <color name="st_completed">#A78BFA</color>
+    <color name="st_dropped">#F87171</color>
+
+    <color name="tag_series">#A78BFA</color>
+    <color name="tag_web">#FBBF24</color>
+    <color name="tag_single">#FF9F0A</color>
+    <color name="tag_ongoing">#34D399</color>
+
+    <!-- Темы: фон / карточка / текст -->
+    <color name="bg_dark">#0F0F0F</color>
+    <color name="card_dark">#1C1C1E</color>
+    <color name="bg_amoled">#000000</color>
+    <color name="card_amoled">#141414</color>
+    <color name="bg_light">#F2F2F7</color>
+    <color name="card_light">#FFFFFF</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="grey">#FF9E9E9E</color>
+    <color name="grey_light">#FF7A7A7A</color>
+
+    <color name="cover_placeholder">#30336B</color>
+</resources>

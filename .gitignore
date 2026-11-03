@@ -1,0 +1,19 @@
+# Gradle
+.gradle/
+build/
+*/build/
+app/build/
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+.DS_Store
+captures/
+local.properties
+.externalNativeBuild/
+.cxx/
+
+# Signing (release keystore must not be committed)
+*.keystore
+*.jks
+keystore.properties

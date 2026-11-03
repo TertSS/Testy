@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Базовые атрибуты темы. Конкретные значения задаются в Theme.RTL.* -->
+    <attr name="rtlBg" format="color" />
+    <attr name="rtlCard" format="color" />
+    <attr name="rtlText" format="color" />
+    <attr name="rtlDivider" format="color" />
+    <attr name="rtlHint" format="color" />
+    <attr name="rtlSwitchOffTrack" format="color" />
+</resources>
