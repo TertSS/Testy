@@ -111,7 +111,7 @@ data class NovelTitle(
                 val w = effWords()
                 return Progress(
                     clamp01(w.toDouble() / tw),
-                    "Слова: ${Fmt.thousands(w)} / ${Fmt.thousands(tw)}",
+                    "${settings.wordsLabel()} ${Fmt.smart(w, settings.shortenNumbers, settings)} / ${Fmt.smart(tw, settings.shortenNumbers, settings)}",
                     "accent"
                 )
             }
@@ -122,7 +122,7 @@ data class NovelTitle(
             val v = effVolumes()
             return Progress(
                 clamp01(v.toDouble() / tv),
-                "Тома: $v/$tv т.",
+                "$v/$tv ${settings.volumesLabel()}",
                 "status"
             )
         }
@@ -131,7 +131,7 @@ data class NovelTitle(
         if (format == FormatType.WEB && tc != null && tc > 0) {
             return Progress(
                 clamp01(chaptersRead.toDouble() / tc),
-                "Главы: $chaptersRead/$tc гл.",
+                "$chaptersRead/$tc ${settings.chaptersLabel()}",
                 "tagWeb"
             )
         }
@@ -218,33 +218,48 @@ data class NovelTitle(
     }
 }
 
-/** Утилиты форматирования чисел (II-2). */
+/** Утилиты форматирования чисел (II-2, V-3 «Цифры»). */
 object Fmt {
-    /** Разделитель тысяч — пробел: «1 250 000». */
-    fun thousands(n: Long): String {
+    /** Разделитель тысяч по настройке (пробел/запятая/точка/none). */
+    fun thousands(n: Long, st: SettingsState? = null): String {
+        val sep = when (st?.thousandSep ?: ThousandSep.SPACE) {
+            ThousandSep.NONE -> ""
+            ThousandSep.COMMA -> ","
+            ThousandSep.DOT -> "."
+            ThousandSep.SPACE -> " "
+        }
         val s = n.toString()
         val sb = StringBuilder()
         for ((i, c) in s.withIndex()) {
-            if (i > 0 && (s.length - i) % 3 == 0) sb.append(' ')
+            if (i > 0 && sep.isNotEmpty() && (s.length - i) % 3 == 0) sb.append(sep)
             sb.append(c)
         }
         return sb.toString()
     }
 
     /** Число с учётом настройки «сокращать числа»: >=1M -> «1.2M», >=1K -> «150K». */
-    fun smart(n: Long, shorten: Boolean): String {
-        if (!shorten) return thousands(n)
+    fun smart(n: Long, shorten: Boolean, st: SettingsState? = null): String {
+        if (!shorten) return thousands(n, st)
         return when {
-            n >= 1_000_000 -> trimZero("%.1f".format(n / 1_000_000.0)) + "M"
-            n >= 1_000 -> (n / 1000).toString() + "K"
+            n >= 1_000_000 -> trimZero(dec(n / 1_000_000.0, st)) + "M"
+            n >= 1_000 -> trimZero(dec(n / 1000.0, st)) + "K"
             else -> n.toString()
         }
     }
 
-    /** Дробный номер без «.0», если целое. */
-    fun num(d: Double): String =
+    /** Дробный номер без «.0», если целое; разделитель — по настройке. */
+    fun num(d: Double, st: SettingsState? = null): String =
         if (d == Math.floor(d) && !d.isInfinite()) d.toLong().toString()
-        else d.toString().trimEnd('0').trimEnd('.')
+        else dec(d, st)
 
-    private fun trimZero(s: String) = if (s.endsWith(".0")) s.dropLast(2) else s
+    private fun dec(d: Double, st: SettingsState?): String {
+        var s = "%.2f".format(d).trimEnd('0').trimEnd('.')
+        val ds = when (st?.decimalSep ?: DecimalSep.DOT) {
+            DecimalSep.COMMA -> ','
+            DecimalSep.DOT -> '.'
+        }
+        return if (ds != '.') s.replace('.', ds) else s
+    }
+
+private fun trimZero(s: String) = if (s.endsWith(".0")) s.dropLast(2) else s
 }

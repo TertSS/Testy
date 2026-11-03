@@ -10,6 +10,18 @@ enum class CardStyle { NUMBERS, TILE, BAR }
 /** Расположение закладки в карточке. */
 enum class BookmarkPos { INLINE, BOTTOM }
 
+/** Отображение томов (V-3). */
+enum class VolumeDisplay { NUM_ONLY, WITH_TOTAL, RANGE }
+
+/** Разделитель целой и дробной части числа. */
+enum class DecimalSep { DOT, COMMA }
+
+/** Разделитель тысяч. */
+enum class ThousandSep { NONE, SPACE, COMMA, DOT }
+
+/** Цвет полос прогресса (V-1). */
+enum class ProgressColorBy { ACCENT, STATUS, BY_TYPE }
+
 /** Роль цвета для палитры (Персонализация, II-11). */
 object ColorRoles {
     const val ACCENT = "accent"
@@ -49,6 +61,20 @@ enum class AppTheme { DARK, AMOLED, LIGHT }
  */
 data class SettingsState(
     var theme: AppTheme = AppTheme.DARK,
+    var animations: Boolean = true,                  // анимации интерфейса
+    var volumeDisplay: VolumeDisplay = VolumeDisplay.WITH_TOTAL,
+    var volumesAsRange: Boolean = false,
+    var volumesCountOnly: Boolean = false,
+    var chaptersAsRange: Boolean = false,
+    var chaptersCountOnly: Boolean = false,
+    var decimalSep: DecimalSep = DecimalSep.DOT,
+    var thousandSep: ThousandSep = ThousandSep.SPACE,
+    var spacesBeforeSuffix: Boolean = true,
+    var progressColorBy: ProgressColorBy = ProgressColorBy.ACCENT,
+    var showPercent: Boolean = false,
+    var showTotals: Boolean = true,
+    var chapterSearchInList: Boolean = true,
+    var lastSettingsTab: Int = 0,
     var cardStyle: CardStyle = CardStyle.NUMBERS,
     // Вид карточек
     var titleOneLine: Boolean = false,               // «Название в одну строку» (выкл)
@@ -95,6 +121,16 @@ data class SettingsState(
     var lastStatusTab: String = "all",               // последняя вкладка запоминается
     var knownGenres: MutableList<String> = mutableListOf(), // словарь жанров (не уменьшается)
 ) {
+    /** «Отключить анимации» из оригинала — инверсия «анимаций». */
+    var disableAnimations: Boolean
+        get() = !animations
+        set(v) { animations = !v }
+
+    fun sp(): String = if (spacesBeforeSuffix) " " else ""
+    fun wordsLabel(): String = "сл."
+    fun volumesLabel(): String = "т."
+    fun chaptersLabel(): String = "гл."
+
     fun color(role: String): Int = colors[role] ?: ColorRoles.defaults()[role]!!
 
     fun statusColor(s: TitleStatus): Int = when (s) {
@@ -117,6 +153,20 @@ data class SettingsState(
 
     fun toJson(): JSONObject = JSONObject().apply {
         put("theme", theme.name)
+        put("animations", animations)
+        put("volumeDisplay", volumeDisplay.name)
+        put("volumesAsRange", volumesAsRange)
+        put("volumesCountOnly", volumesCountOnly)
+        put("chaptersAsRange", chaptersAsRange)
+        put("chaptersCountOnly", chaptersCountOnly)
+        put("decimalSep", decimalSep.name)
+        put("thousandSep", thousandSep.name)
+        put("spacesBeforeSuffix", spacesBeforeSuffix)
+        put("progressColorBy", progressColorBy.name)
+        put("showPercent", showPercent)
+        put("showTotals", showTotals)
+        put("chapterSearchInList", chapterSearchInList)
+        put("lastSettingsTab", lastSettingsTab)
         put("cardStyle", cardStyle.name)
         put("titleOneLine", titleOneLine)
         put("centeredHeaders", centeredHeaders)
@@ -169,6 +219,20 @@ data class SettingsState(
             }
             return SettingsState(
                 theme = runCatching { AppTheme.valueOf(o.optString("theme", AppTheme.DARK.name)) }.getOrDefault(AppTheme.DARK),
+                animations = o.optBoolean("animations", base.animations),
+                volumeDisplay = runCatching { VolumeDisplay.valueOf(o.optString("volumeDisplay", base.volumeDisplay.name)) }.getOrDefault(base.volumeDisplay),
+                volumesAsRange = o.optBoolean("volumesAsRange", base.volumesAsRange),
+                volumesCountOnly = o.optBoolean("volumesCountOnly", base.volumesCountOnly),
+                chaptersAsRange = o.optBoolean("chaptersAsRange", base.chaptersAsRange),
+                chaptersCountOnly = o.optBoolean("chaptersCountOnly", base.chaptersCountOnly),
+                decimalSep = runCatching { DecimalSep.valueOf(o.optString("decimalSep", base.decimalSep.name)) }.getOrDefault(base.decimalSep),
+                thousandSep = runCatching { ThousandSep.valueOf(o.optString("thousandSep", base.thousandSep.name)) }.getOrDefault(base.thousandSep),
+                spacesBeforeSuffix = o.optBoolean("spacesBeforeSuffix", base.spacesBeforeSuffix),
+                progressColorBy = runCatching { ProgressColorBy.valueOf(o.optString("progressColorBy", base.progressColorBy.name)) }.getOrDefault(base.progressColorBy),
+                showPercent = o.optBoolean("showPercent", base.showPercent),
+                showTotals = o.optBoolean("showTotals", base.showTotals),
+                chapterSearchInList = o.optBoolean("chapterSearchInList", base.chapterSearchInList),
+                lastSettingsTab = o.optInt("lastSettingsTab", 0),
                 cardStyle = runCatching { CardStyle.valueOf(o.optString("cardStyle", CardStyle.NUMBERS.name)) }.getOrDefault(CardStyle.NUMBERS),
                 titleOneLine = o.optBoolean("titleOneLine", base.titleOneLine),
                 centeredHeaders = o.optBoolean("centeredHeaders", base.centeredHeaders),
@@ -348,6 +412,13 @@ class Store private constructor(private val ctx: Context) {
     fun clearAllData() {
         titles = mutableListOf()
         saveTitles()
+    }
+
+    /** Занятое место: файл библиотеки + обложки в filesDir. */
+    fun storageUsed(): Long {
+        var size = prefs.all.values.sumOf { it?.toString()?.toByteArray()?.size ?: 0 }
+        ctx.filesDir.listFiles()?.forEach { f -> if (f.name.startsWith("cover_")) size += f.length() }
+        return size
     }
 
     companion object {

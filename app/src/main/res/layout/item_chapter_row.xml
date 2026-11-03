@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingHorizontal="6dp"
+    android:paddingVertical="2dp">
+
+    <EditText
+        android:id="@+id/rowNum"
+        android:layout_width="72dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:maxLines="1"
+        android:textSize="14sp"
+        android:textColor="?rtlText"
+        android:importantForAutofill="no" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/words_suffix"
+        android:textColor="?rtlHint"
+        android:textSize="12sp"
+        android:layout_marginEnd="6dp" />
+
+    <EditText
+        android:id="@+id/rowWords"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:inputType="number"
+        android:maxLines="1"
+        android:textSize="14sp"
+        android:textColor="?rtlText"
+        android:hint="@string/words_label"
+        android:textColorHint="?rtlHint"
+        android:importantForAutofill="no" />
+
+    <TextView
+        android:id="@+id/rowDel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="✕"
+        android:textColor="?rtlHint"
+        android:textSize="18sp"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless" />
+</LinearLayout>

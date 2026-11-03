@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Базовая тема: значения атрибутов задаются в Theme.RTL.Dark / Amoled / Light -->
+    <style name="Base.Theme.RTL" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/accent</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:windowBackground">?rtlBg</item>
+        <item name="android:textColorPrimary">?rtlText</item>
+        <item name="android:textColorSecondary">?rtlHint</item>
+        <item name="colorControlNormal">?rtlHint</item>
+        <item name="colorControlActivated">@color/accent</item>
+        <item name="colorSwitchThumbNormal">#FFBDBDBD</item>
+        <item name="android:statusBarColor">?rtlBg</item>
+        <item name="android:navigationBarColor">?rtlBg</item>
+        <item name="materialAlertDialogTheme">@style/Dialog.RTL</item>
+    </style>
+
+    <style name="Theme.RTL.Dark" parent="Base.Theme.RTL">
+        <item name="rtlBg">@color/bg_dark</item>
+        <item name="rtlCard">@color/card_dark</item>
+        <item name="rtlText">@color/white</item>
+        <item name="rtlDivider">#2A2A2C</item>
+        <item name="rtlHint">#8E8E93</item>
+        <item name="rtlSwitchOffTrack">#3A3A3C</item>
+    </style>
+
+    <style name="Theme.RTL.Amoled" parent="Base.Theme.RTL">
+        <item name="rtlBg">@color/bg_amoled</item>
+        <item name="rtlCard">@color/card_amoled</item>
+        <item name="rtlText">@color/white</item>
+        <item name="rtlDivider">#1F1F1F</item>
+        <item name="rtlHint">#8E8E93</item>
+        <item name="rtlSwitchOffTrack">#2C2C2E</item>
+    </style>
+
+    <style name="Theme.RTL.Light" parent="Base.Theme.RTL">
+        <item name="rtlBg">@color/bg_light</item>
+        <item name="rtlCard">@color/card_light</item>
+        <item name="rtlText">#FF111111</item>
+        <item name="rtlDivider">#D9D9DE</item>
+        <item name="rtlHint">#7A7A80</item>
+        <item name="rtlSwitchOffTrack">#C7C7CC</item>
+        <item name="android:statusBarColor">@color/bg_light</item>
+        <item name="android:navigationBarColor">@color/bg_light</item>
+    </style>
+
+    <style name="Dialog.RTL" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="colorPrimary">@color/accent</item>
+        <item name="dialogCornerRadius">16dp</item>
+    </style>
+
+    <!-- Чипы-теги (статус/формат) -->
+    <style name="Chip.RTL" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="chipBackgroundColor">#22FFFFFF</item>
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="chipStartPadding">6dp</item>
+        <item name="chipEndPadding">6dp</item>
+        <item name="ensureMinTouchTargetSize">false</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- Переключатель настроек: заголовок + подпись + switch -->
+    <style name="SettingTitle">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">?rtlText</item>
+    </style>
+
+    <style name="SettingSub">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?rtlHint</item>
+    </style>
+
+    <style name="SectionHeader">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/accent</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <!-- Строка «метка — значение» на экране тайтла -->
+    <style name="InfoRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingVertical">2dp</item>
+    </style>
+
+    <style name="BodyText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?rtlText</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="BodySmall" parent="BodyText">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?rtlHint</item>
+    </style>
+
+    <style name="StepTab">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">?rtlHint</item>
+        <item name="android:paddingHorizontal">14dp</item>
+        <item name="android:paddingVertical">7dp</item>
+        <item name="android:layout_marginEnd">6dp</item>
+        <item name="android:background">@drawable/bg_tag</item>
+    </style>
+
+    <style name="FieldLabel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?rtlHint</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+    <style name="FieldInput">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?rtlText</item>
+        <item name="android:textColorHint">?rtlHint</item>
+        <item name="android:background">@drawable/bg_field</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:maxLines">4</item>
+        <item name="android:importantForAutofill">no</item>
+    </style>
+
+    <style name="MiniBtn">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/accent</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@drawable/bg_field</item>
+        <item name="android:layout_marginEnd">6dp</item>
+    </style>
+</resources>
